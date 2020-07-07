@@ -1,3 +1,3 @@
-## Krushn's Arch Linux Install scripts
+## Orion's Arch Install scripts
 
-This will be updated soon. In the meantime, check out the GitHub repository.
+Custom install script for my system.
