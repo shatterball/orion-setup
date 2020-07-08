@@ -3,10 +3,6 @@
 # Post install script
 echo "Orion Arch Config"
 
-pacman -Rns vi vim
-
-ln -sf /usr/bin/nvim /usr/bin/vi
-
 # Set date time
 ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
 hwclock --systohc
@@ -20,10 +16,10 @@ echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 echo "orion" >> /etc/hostname
 echo "127.0.1.1 orion.localdomain orion" >> /etc/hosts
 
-# Generate initramfs
-mkinitcpio -P
+pacman -S $(cat repo)
 
 # Set root password
+echo "Set root password"
 passwd
 
 # Install bootloader
@@ -31,16 +27,16 @@ grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # Create new user
-useradd -m -G wheel,power,iput,storage,uucp,network -s /usr/bin/zsh rohan
+useradd -m -G wheel,power,audio,storage,network -s /usr/bin/zsh rohan
 echo "rohan ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers
-# sed --in-place 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
 echo "Set password for new user rohan"
 passwd rohan
 
 # Enable services
 systemctl enable NetworkManager.service
 
-# Set QT5 theme
+# MISC
 echo "QT_QPA_PLATFORMTHEME=qt5ct" | sudo tee -a /etc/environment
+ln -sf /usr/bin/nvim /usr/bin/vi
 
 echo "Configuration done. You can now exit chroot."
