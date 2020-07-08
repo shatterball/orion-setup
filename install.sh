@@ -33,14 +33,14 @@ swapon /dev/sda2
 
 # Install Arch Linux
 echo "Installing Arch Linux..." 
-pacstrap /mnt base base-devel linux-zen zsh grub intel-ucode
+pacstrap /mnt base base-devel linux-zen zsh grub intel-ucode neovim
 
 # Generate fstab
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Copy post-install system cinfiguration script to new /root
 cp -rfv post-install.sh /mnt/root
-cp -rfv repo /mnt/root
+cp -rfv pkglist /mnt/root
 cp -rfv mirrorlist /mnt/etc/pacman.d/ 
 chmod a+x /mnt/root/post-install.sh
 
