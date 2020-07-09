@@ -16,6 +16,7 @@ echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 echo "orion" >> /etc/hostname
 echo "127.0.1.1 orion.localdomain orion" >> /etc/hosts
 
+# Install packages
 pacman -Syy $(cat pkglist)
 
 # Set root password
@@ -29,7 +30,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 # Create new user
 useradd -m -G wheel,power,audio,storage,network -s /usr/bin/zsh rohan
 echo "rohan ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers
-echo "set-sink-port" | sudo tee -a /etc/pulse/default.pa
+echo "set-sink-port 0 analog-output-headphones" | sudo tee -a /etc/pulse/default.pa
 echo "Set password for new user rohan"
 passwd rohan
 
