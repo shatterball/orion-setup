@@ -21,7 +21,7 @@ pacman -Syy
 cfdisk
 
 # Format the partitions
-mkfs.btrfs -L SYS /dev/sda1
+mkfs.btrfs -f -L SYS /dev/sda1
 mkswap -L SWAP /dev/sda2
 
 # Set up time

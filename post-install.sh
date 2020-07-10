@@ -25,11 +25,14 @@ grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # Create new user
+echo "Creating new user..."
 useradd -m -G wheel,power,audio,storage,network -s /usr/bin/zsh rohan
+passwd rohan
+
+echo "Adding permissions"
 echo "rohan ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers
 echo "set-sink-port 0 analog-output-headphones" | sudo tee -a /etc/pulse/default.pa
 echo "Set password for new user rohan"
-passwd rohan
 
 # Setup the drives
 echo "LABEL=S0 /run/media/rohan/S0 auto nosuid,nodev,nofail,x-gvfs-show 0 0" | sudo tee -a /etc/fstab
