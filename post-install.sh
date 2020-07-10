@@ -16,9 +16,6 @@ echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 echo "orion" >> /etc/hostname
 echo "127.0.1.1 orion.localdomain orion" >> /etc/hosts
 
-# Install packages
-pacman -Syy $(cat pkglist)
-
 # Set root password
 echo "Set root password"
 passwd
@@ -39,9 +36,6 @@ echo "LABEL=S0 /run/media/rohan/S0 auto nosuid,nodev,nofail,x-gvfs-show 0 0" | s
 echo "LABEL=ARCH_BK /run/media/rohan/ARCH_BK auto nosuid,nodev,nofail,x-gvfs-show 0 0" | sudo tee -a /etc/fstab
 echo "LABEL=T0 /run/media/rohan/T0 auto nosuid,nodev,nofail,x-gvfs-show 0 0" | sudo tee -a /etc/fstab
 echo "LABEL=T1 /run/media/rohan/T1 auto nosuid,nodev,nofail,x-gvfs-show 0 0" | sudo tee -a /etc/fstab
-
-# Enable services
-systemctl enable NetworkManager.service
 
 # MISC
 echo "QT_QPA_PLATFORMTHEME=qt5ct" | sudo tee -a /etc/environment
