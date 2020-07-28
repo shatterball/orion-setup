@@ -36,7 +36,7 @@ echo "Set password for new user rohan"
 
 # Setup the drives
 echo "LABEL=S0 /run/media/rohan/S0 auto nosuid,nodev,nofail,x-gvfs-show 0 0" | sudo tee -a /etc/fstab
-echo "LABEL=ARCH_BK /run/media/rohan/ARCH_BK auto nosuid,nodev,nofail,x-gvfs-show 0 0" | sudo tee -a /etc/fstab
+echo "LABEL=BK /run/media/rohan/BK auto nosuid,nodev,nofail,x-gvfs-show 0 0" | sudo tee -a /etc/fstab
 echo "LABEL=T0 /run/media/rohan/T0 auto nosuid,nodev,nofail,x-gvfs-show 0 0" | sudo tee -a /etc/fstab
 echo "LABEL=T1 /run/media/rohan/T1 auto nosuid,nodev,nofail,x-gvfs-show 0 0" | sudo tee -a /etc/fstab
 
