@@ -1,0 +1,7 @@
+[Unit]
+Description=Python FTP Service
+After=network.target
+[Service]
+ExecStart=/usr/bin/python -m pyftpdlib -p 21 -d /run/media/rohan/ -w -u rohan -P kepsake550
+[Install]
+WantedBy=multi-user.target

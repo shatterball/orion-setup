@@ -41,7 +41,18 @@ echo "LABEL=T0 /run/media/rohan/T0 auto nosuid,nodev,nofail,x-gvfs-show 0 0" | s
 echo "LABEL=T1 /run/media/rohan/T1 auto nosuid,nodev,nofail,x-gvfs-show 0 0" | sudo tee -a /etc/fstab
 
 # MISC
-echo "QT_QPA_PLATFORMTHEME=qt5ct" | sudo tee -a /etc/environment
+echo "QT_QPA_PLATFORMTHEME=qt5ct" | tee -a /etc/environment
 ln -sf /usr/bin/nvim /usr/bin/vi
+
+echo "Disabling NetworkManager-wait-online service"
+systemctl disable NetworkManager-wait-online.service
+
+echo "Setting up SMB server"
+cp ./smb.conf /etc/samba/smb.conf
+systemctl enable smb.service
+
+echo "Setting up Python FTP servers"
+cp ./pyftpd.service /etc/systemd/system/pyftpd.service
+systemctl enable pyftpd
 
 echo "Configuration done. You can now exit chroot."
