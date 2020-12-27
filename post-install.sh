@@ -44,6 +44,7 @@ echo "LABEL=T1 /run/media/rohan/T1 auto nosuid,nodev,nofail,x-gvfs-show 0 0" | s
 echo "QT_QPA_PLATFORMTHEME=qt5ct" | tee -a /etc/environment
 ln -sf /usr/bin/nvim /usr/bin/vi
 
+# Disable NetworkManager-wait-online for faster SMB daemon startup
 echo "Disabling NetworkManager-wait-online service"
 systemctl disable NetworkManager-wait-online.service
 
