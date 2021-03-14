@@ -20,7 +20,7 @@ swapon /dev/sda2
 
 # Install Arch Linux
 echo "Installing Arch Linux..." 
-pacstrap /mnt base base-devel linux-zen zsh grub intel-ucode neovim
+pacstrap /mnt base base-devel linux-zen zsh grub intel-ucode neovim git
 
 # Generate fstab
 genfstab -U /mnt >> /mnt/etc/fstab
