@@ -1,0 +1,16 @@
+continue=true
+disk-cache=32M
+dir=/home/rohan/dl/
+file-allocation=falloc
+max-connection-per-server=8
+max-concurrent-downloads=6
+max-overall-download-limit=0
+min-split-size=25M
+force-save=true
+input-file=/home/rohan/.config/aria2.session
+save-session=/home/rohan/.config/aria2.session
+save-session-interval=10
+split=4
+rpc-listen-all=true
+rpc-allow-origin-all=true
+

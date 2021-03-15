@@ -1,0 +1,11 @@
+[Unit]
+Description=Aria2c download manager
+After=network.target
+
+[Service]
+Type=simple
+User=rohan
+ExecStart=/usr/bin/aria2c --console-log-level=warn --enable-rpc --conf-path=/etc/aria2.daemon
+
+[Install]
+WantedBy=multi-user.target
